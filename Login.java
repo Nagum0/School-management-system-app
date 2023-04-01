@@ -6,8 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
-//import java.io.FileReader;
-//import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -68,6 +66,19 @@ public class Login extends JPanel implements ActionListener{
         }
 
         System.out.println(userLoginData);
+
+        //Check correct inputs
+        String tempUser = "teach00";
+        String tempPass = "22222";
+
+        if (tempPass.equals(userLoginData.get(tempUser))) {
+            System.out.println(userLoginData.get(tempUser) + " " + tempPass);
+            System.out.println(true);
+        }
+        else {
+            System.out.println(userLoginData.get(tempUser) + " " + tempPass);
+            System.out.println(false);
+        }
     }
 
     //Actionlistener
