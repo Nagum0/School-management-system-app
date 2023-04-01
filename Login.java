@@ -4,7 +4,12 @@ import java.awt.Font;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+//import java.io.FileReader;
+//import java.io.IOException;
 import java.util.HashMap;
+import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -47,10 +52,22 @@ public class Login extends JPanel implements ActionListener{
 
     //Get login data from txt file
     private void readLoginData() {
+        //User data hashmap
         userLoginData = new HashMap<String, String>();
-        userLoginData.put("admin00", "0000");
+        //File reading
+        File file = new File("school_magement_app/files/loginDataBase.txt");
 
-        System.out.println(userLoginData.get("admin00"));
+        try (Scanner fileScan = new Scanner(file)) {
+            while (fileScan.hasNextLine()) {
+                String data = fileScan.nextLine();
+                String[] dataSplit = data.split(" ", 2);
+                userLoginData.put(dataSplit[0], dataSplit[1]);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(userLoginData);
     }
 
     //Actionlistener
