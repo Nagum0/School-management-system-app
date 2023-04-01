@@ -1,6 +1,6 @@
 package school_magement_app;
 
-import java.awt.GridLayout;
+import java.awt.Font;
 import java.awt.Label;
 
 import javax.swing.JPanel;
@@ -17,10 +17,10 @@ public class Login extends JPanel {
 
         //Panel build
         this.setBounds(0, 0, this.width, this.height);
-        this.setLayout(new GridLayout(5, 1, 0, 0));
 
         //Login title label
         Label loginLbl = new Label("Login");
+        loginLbl.setFont(new Font(Settings.FONT, Font.BOLD, Settings.TITLE_FONT_SIZE));
         this.add(loginLbl);
     }
 }
