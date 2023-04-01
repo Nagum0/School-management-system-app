@@ -1,22 +1,31 @@
 package school_magement_app;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-public class App {
-    //Contrusctor
+//Main GUI for the application
+
+public class App extends JFrame{
+    //Contrusctor //Main frame
     public App() {
-        buildApp();
-    }
+        this.setSize(Settings.WIDTH, Settings.HEIGHT);
+        this.setTitle("School Management App");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);
 
-    //Main app build
-    public void buildApp() {
-        JFrame mainFrame = new JFrame();
-        mainFrame.setSize(700, 700);
-        mainFrame.setTitle("");
+        //Set logo for app
+        ImageIcon logo = new ImageIcon("school_magement_app/files/logo.png");
+        this.setIconImage(logo.getImage());
 
-        
+        //Call login panel
+        drawLogin();
 
         //Make frame visible
-        mainFrame.setVisible(true);
+        this.setVisible(true);
+    }
+
+    //Methods-----------------------------------------------------------------------------
+    private void drawLogin() {
+        this.add(new Login(Settings.WIDTH, Settings.HEIGHT));
     }
 }
