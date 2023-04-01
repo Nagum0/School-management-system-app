@@ -1,7 +1,6 @@
 package school_magement_app;
 
 import java.awt.Font;
-import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -9,14 +8,17 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Login extends JPanel implements ActionListener{
     int width;
     int height;
-    Label loginLbl;
+    JLabel loginLbl;
     JButton loginBtn;
+    //Login data hashmap
     private HashMap<String, String> userLoginData;
 
     //Login Contructor
@@ -27,16 +29,17 @@ public class Login extends JPanel implements ActionListener{
 
         //Panel build
         this.setBounds(0, 0, this.width, this.height);
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         //Login title label
-        loginLbl = new Label("Login");
+        loginLbl = new JLabel("Login");
         loginLbl.setFont(new Font(Settings.FONT, Font.BOLD, Settings.TITLE_FONT_SIZE));
         this.add(loginLbl);
 
+
         //Login button
-        loginBtn = new JButton();
+        loginBtn = new JButton("Log in");
         loginBtn.addActionListener(this); //Setup actionlistener
-        loginBtn.setText("Log in");
         loginBtn.setFont(new Font(Settings.FONT, Font.BOLD, Settings.FONT_SIZE));
         loginBtn.setFocusable(false);
         this.add(loginBtn);
@@ -69,15 +72,14 @@ public class Login extends JPanel implements ActionListener{
 
         //Check correct inputs
         String tempUser = "teach00";
-        String tempPass = "22222";
+        String tempPass = "2222";
 
         if (tempPass.equals(userLoginData.get(tempUser))) {
-            System.out.println(userLoginData.get(tempUser) + " " + tempPass);
-            System.out.println(true);
+            System.out.println("Logged in");
+            this.setVisible(false);
         }
         else {
-            System.out.println(userLoginData.get(tempUser) + " " + tempPass);
-            System.out.println(false);
+            System.out.println("Incorrect username or password");
         }
     }
 
