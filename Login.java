@@ -122,6 +122,25 @@ public class Login extends JPanel implements ActionListener{
         if (convertedPass.equals(userLoginData.get(userNameEntry))) {
             System.out.println("Logged in");
             this.setVisible(false);
+
+            String[] checkUserType = new String[userNameEntry.length()];
+
+            //Check what account to load in -> a_(admin), s_(student), t_(teacher)
+            for (int i = 0; i < userNameEntry.length(); i++) {
+                checkUserType[i] = String.valueOf(userNameEntry.charAt(i));
+            }
+
+            switch (checkUserType[0]) {
+                case "s":
+                    System.out.println("Student account");
+                    break;
+                case "t":
+                    System.out.println("Teacher account");
+                    break;
+                case "a":
+                    System.out.println("Admin account");
+                    break;
+            }
         }
         else {
             System.out.println("Incorrect username or password");
