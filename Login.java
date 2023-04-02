@@ -8,7 +8,6 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,19 +28,23 @@ public class Login extends JPanel implements ActionListener{
 
         //Panel build
         this.setBounds(0, 0, this.width, this.height);
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.setLayout(null);
 
         //Login title label
         loginLbl = new JLabel("Login");
         loginLbl.setFont(new Font(Settings.FONT, Font.BOLD, Settings.TITLE_FONT_SIZE));
-        this.add(loginLbl);
+        loginLbl.setHorizontalAlignment(JLabel.CENTER);
 
 
         //Login button
         loginBtn = new JButton("Log in");
         loginBtn.addActionListener(this); //Setup actionlistener
-        loginBtn.setFont(new Font(Settings.FONT, Font.BOLD, Settings.FONT_SIZE));
+        loginBtn.setFont(new Font(Settings.FONT, Font.BOLD, Settings.BTN_FONT_SIZE));
+        loginBtn.setBounds(350, 50, Settings.BTN_WIDTH, Settings.BTN_HEIGHT); //Positioning login button
         loginBtn.setFocusable(false);
+
+        //Adding the widgets
+        this.add(loginLbl);
         this.add(loginBtn);
     }
 

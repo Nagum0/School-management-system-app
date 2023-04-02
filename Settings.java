@@ -3,11 +3,17 @@ package school_magement_app;
 import java.util.HashMap;
 
 public class Settings {
+    //Main settings
     public static int WIDTH = 800;
-    public static int HEIGHT = 700; 
+    public static int HEIGHT = 700;
     public static String FONT = "Arial";
     public static int FONT_SIZE = 20;
     public static int TITLE_FONT_SIZE = 25;
+
+    //Button settings
+    public static int BTN_WIDTH = 100;
+    public static int BTN_HEIGHT = 50;
+    public static int BTN_FONT_SIZE = 14;
 
     //Test accounts hashmap
     private static HashMap<String, String> dict;
