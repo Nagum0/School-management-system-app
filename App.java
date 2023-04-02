@@ -25,6 +25,7 @@ public class App extends JFrame{
     }
 
     //Methods-----------------------------------------------------------------------------
+    //Darw login menu
     private void drawLogin() {
         this.add(new Login(Settings.WIDTH, Settings.HEIGHT));
     }

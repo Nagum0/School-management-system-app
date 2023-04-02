@@ -3,6 +3,9 @@ package school_magement_app;
 import java.util.HashMap;
 
 public class Settings {
+    //Panel change variable
+    public static String nextPanel = "";
+
     //Main settings
     public static int WIDTH = 800;
     public static int HEIGHT = 700;

@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 public class Login extends JPanel implements ActionListener{
     int width;
     int height;
+
     //Widgets
     JLabel loginLbl;
 
@@ -132,13 +133,16 @@ public class Login extends JPanel implements ActionListener{
 
             switch (checkUserType[0]) {
                 case "s":
-                    System.out.println("Student account");
+                    Settings.nextPanel = "student_menu";
+                    Main.changePanel();
                     break;
                 case "t":
-                    System.out.println("Teacher account");
+                    Settings.nextPanel = "teacher_menu";
+                    Main.changePanel();
                     break;
                 case "a":
-                    System.out.println("Admin account");
+                    Settings.nextPanel = "admin_menu";
+                    Main.changePanel();
                     break;
             }
         }
