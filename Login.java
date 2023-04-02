@@ -1,5 +1,6 @@
 package school_magement_app;
 
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,12 +12,28 @@ import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 public class Login extends JPanel implements ActionListener{
     int width;
     int height;
+    //Widgets
     JLabel loginLbl;
+
+    //Username entry
+    JLabel userNameLbl;
+    JTextField userNameField;
+    String userNameEntry;
+
+    //Password entry
+    JLabel passwordLbl;
+    JPasswordField passwordField;
+    char[] passwordEntry;
+
+    //Login button
     JButton loginBtn;
+
     //Login data hashmap
     private HashMap<String, String> userLoginData;
 
@@ -33,31 +50,61 @@ public class Login extends JPanel implements ActionListener{
         //Login title label
         loginLbl = new JLabel("Login");
         loginLbl.setFont(new Font(Settings.FONT, Font.BOLD, Settings.TITLE_FONT_SIZE));
-        loginLbl.setHorizontalAlignment(JLabel.CENTER);
+        loginLbl.setBounds(370, 50, Settings.BTN_WIDTH, Settings.BTN_HEIGHT);
 
+        //Username label
+        userNameLbl = new JLabel("Username: ");
+        userNameLbl.setFont(new Font(Settings.FONT, Font.PLAIN, Settings.FONT_SIZE));
+        userNameLbl.setBounds(200, 150, Settings.BTN_WIDTH, Settings.BTN_HEIGHT);
+
+        //Username textfield
+        userNameField = new JTextField();
+        userNameField.setPreferredSize(new Dimension(250, 40));
+        userNameField.setBounds(300, 150, 250, 40);
+
+        //Password label
+        passwordLbl = new JLabel("Password");
+        passwordLbl.setFont(new Font(Settings.FONT, Font.PLAIN, Settings.FONT_SIZE));
+        passwordLbl.setBounds(200, 250, Settings.BTN_WIDTH, Settings.BTN_HEIGHT);
+
+        //Password entry
+        passwordField = new JPasswordField();
+        passwordField.setPreferredSize(new Dimension(250, 40));
+        passwordField.setBounds(300, 250, 250, 40);
 
         //Login button
         loginBtn = new JButton("Log in");
         loginBtn.addActionListener(this); //Setup actionlistener
         loginBtn.setFont(new Font(Settings.FONT, Font.BOLD, Settings.BTN_FONT_SIZE));
-        loginBtn.setBounds(350, 50, Settings.BTN_WIDTH, Settings.BTN_HEIGHT); //Positioning login button
+        loginBtn.setBounds(350, 400, Settings.BTN_WIDTH, Settings.BTN_HEIGHT); //Positioning login button
         loginBtn.setFocusable(false);
 
         //Adding the widgets
         this.add(loginLbl);
+        this.add(userNameLbl);
+        this.add(userNameField);
+        this.add(passwordLbl);
+        this.add(passwordField);
         this.add(loginBtn);
     }
 
     //Login
     private void login() {
-        System.out.println("loginBtn clicked");
-        readLoginData();
+        checkLoginData();
     }
 
     //Get login data from txt file
-    private void readLoginData() {
+    private void checkLoginData() {
         //User data hashmap
         userLoginData = new HashMap<String, String>();
+
+        //Username getText
+        userNameEntry = userNameField.getText();
+
+        //Password getText
+        passwordEntry = passwordField.getPassword();
+        String convertedPass = String.valueOf(passwordEntry); //Converted char[] to string
+
         //File reading
         File file = new File("school_magement_app/files/loginDataBase.txt");
 
@@ -71,13 +118,8 @@ public class Login extends JPanel implements ActionListener{
             e.printStackTrace();
         }
 
-        System.out.println(userLoginData);
-
         //Check correct inputs
-        String tempUser = "teach00";
-        String tempPass = "2222";
-
-        if (tempPass.equals(userLoginData.get(tempUser))) {
+        if (convertedPass.equals(userLoginData.get(userNameEntry))) {
             System.out.println("Logged in");
             this.setVisible(false);
         }
