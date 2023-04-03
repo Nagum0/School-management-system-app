@@ -1,4 +1,4 @@
-package school_magement_app;
+package App;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -107,7 +107,7 @@ public class Login extends JPanel implements ActionListener{
         String convertedPass = String.valueOf(passwordEntry); //Converted char[] to string
 
         //File reading
-        File file = new File("school_magement_app/files/loginDataBase.txt");
+        File file = new File("C:/Users/csabe/OneDrive/Desktop/school_magement_app/files/loginDataBase.txt");
 
         try (Scanner fileScan = new Scanner(file)) {
             while (fileScan.hasNextLine()) {

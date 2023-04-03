@@ -1,4 +1,6 @@
-package school_magement_app;
+package App;
+
+import App.Admin.AdminPanel;
 
 public class Main {
     private static App mainApp;

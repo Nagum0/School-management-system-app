@@ -1,4 +1,4 @@
-package school_magement_app;
+package App;
 
 import java.util.HashMap;
 
@@ -17,6 +17,8 @@ public class Settings {
     public static int BTN_WIDTH = 100;
     public static int BTN_HEIGHT = 50;
     public static int BTN_FONT_SIZE = 14;
+    public static int MENU_BTN_WIDTH = 150;
+    public static int MENU_BTN_HEIGHT = 75;
 
     //Test accounts hashmap
     private static HashMap<String, String> dict;

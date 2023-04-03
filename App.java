@@ -1,4 +1,4 @@
-package school_magement_app;
+package App;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
