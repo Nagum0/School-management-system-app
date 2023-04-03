@@ -134,17 +134,17 @@ public class Login extends JPanel implements ActionListener{
             switch (checkUserType[0]) {
                 case "s":
                     Settings.nextPanel = "student_menu";
-                    Main.changePanel();
                     break;
                 case "t":
                     Settings.nextPanel = "teacher_menu";
-                    Main.changePanel();
                     break;
                 case "a":
                     Settings.nextPanel = "admin_menu";
-                    Main.changePanel();
                     break;
             }
+
+            //Change panel method called
+            Main.changePanel();
         }
         else {
             System.out.println("Incorrect username or password");

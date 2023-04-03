@@ -20,6 +20,12 @@ public class Main {
             case "student_menu":
                 System.out.println("Student menu");
                 break;
+            case "add_student":
+                System.out.println("Add student frame opened");
+                break;
+            case "add_teacher":
+                System.out.println("Add teacher frame opened");
+                break;
         }
     }
     public static void main(String[] args) {
