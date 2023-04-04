@@ -1,5 +1,6 @@
 package App;
 
+import App.Admin.AddStudent;
 import App.Admin.AdminPanel;
 
 public class Main {
@@ -21,7 +22,7 @@ public class Main {
                 System.out.println("Student menu");
                 break;
             case "add_student":
-                System.out.println("Add student frame opened");
+                new AddStudent();
                 break;
             case "add_teacher":
                 System.out.println("Add teacher frame opened");

@@ -14,7 +14,7 @@ public class App extends JFrame{
         this.setResizable(false);
 
         //Set logo for app
-        ImageIcon logo = new ImageIcon("school_magement_app/files/logo.png");
+        ImageIcon logo = new ImageIcon("C:/Users/csabe/OneDrive/Desktop/school_magement_app/images/logo.png");
         this.setIconImage(logo.getImage());
 
         //Call login panel

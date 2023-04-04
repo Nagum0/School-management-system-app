@@ -1,6 +1,8 @@
 package App;
 
-import java.util.HashMap;
+import java.io.FileWriter;
+import java.io.IOException;
+//import java.util.HashMap;
 
 public class Settings {
     //Panel change variable
@@ -13,6 +15,10 @@ public class Settings {
     public static int FONT_SIZE = 15;
     public static int TITLE_FONT_SIZE = 25;
 
+    //Add menus
+    public static int ADD_WIDTH = 500;
+    public static int ADD_HEIGHT = 500;
+
     //Button settings
     public static int BTN_WIDTH = 100;
     public static int BTN_HEIGHT = 50;
@@ -21,11 +27,11 @@ public class Settings {
     public static int MENU_BTN_HEIGHT = 75;
 
     //Test accounts hashmap
-    private static HashMap<String, String> dict;
+    //private static HashMap<String, String> dict;
 
     //Test stuff---------------------------------
-    public static void main(String[] args) {
-        String user = "admin00";
+    public static void main(String[] args) throws IOException {
+        /* String user = "admin00";
         String pass = "0000";
 
         dict = new HashMap<String, String>();
@@ -38,6 +44,11 @@ public class Settings {
         }
         else {
             System.out.println(false);
-        }
+        } */
+
+        FileWriter writer = new FileWriter("C:/Users/csabe/OneDrive/Desktop/school_magement_app/files/Students/test.txt");
+        writer.write("test \n");
+        writer.write("lol \n");
+        writer.close();
     }   
 }
