@@ -15,4 +15,9 @@ public class WriteFileBtn extends JButton{
         this.addActionListener(that);
         this.setText(text);
     }
+
+    //Methods
+    public void editFile() {
+        
+    }
 }
