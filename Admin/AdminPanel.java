@@ -9,8 +9,8 @@ import javax.swing.JPanel;
 import App.Main;
 import App.Settings;
 
-//Class for buttons that open admin frames
-class AddBtn extends JButton implements ActionListener{
+//Class for buttons that open admin frames----------------------------------------------------------------------
+class AddBtn extends JButton implements ActionListener {
     String openNewWindow;
 
     //Constructor
@@ -45,6 +45,7 @@ class AddBtn extends JButton implements ActionListener{
     }
 }
 
+//Main ADMIN PANEL class----------------------------------------------------------------------------------------
 //Menu for admin
 public class AdminPanel extends JPanel{
     //Menu buttons
