@@ -2,6 +2,8 @@ package App.Admin;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 
@@ -40,7 +42,6 @@ public class AddStudent extends JFrame implements ActionListener {
         this.setSize(Settings.WIDTH, Settings.HEIGHT);
         this.setResizable(false);
         this.setTitle("Add Student");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //This is temporary for the testing. Turn off later.
         this.setLocationRelativeTo(null); //Sets opening position to the center of the screen.
         this.setLayout(null);
         this.setVisible(true);
@@ -61,6 +62,12 @@ public class AddStudent extends JFrame implements ActionListener {
         avgGradeLbl = new EntryLabel("Avg grade: ", 250, 280);
         avgGrade = new EntryField(330, 290);
 
+        specSubject1Lbl = new EntryLabel("Spec subject 1: ", 250, 330);
+        specSubject1 = new EntryField(330, 340);
+
+        specSubject2Lbl = new EntryLabel("Spec subject 2: ", 250, 380);
+        specSubject2 = new EntryField(330, 390);
+
         //Add student btn
         addStudentBtn = new WriteFileBtn(300, 600, "Add student", this);
 
@@ -80,6 +87,12 @@ public class AddStudent extends JFrame implements ActionListener {
         this.add(avgGradeLbl);
         this.add(avgGrade);
 
+        this.add(specSubject1Lbl);
+        this.add(specSubject1);
+
+        this.add(specSubject2Lbl);
+        this.add(specSubject2);
+
         this.add(addStudentBtn);
     }
 
@@ -87,13 +100,18 @@ public class AddStudent extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addStudentBtn) {
-            System.out.println(firstNameField.returnValue());
-            System.out.println(lastNameField.returnValue());
+            //Writing student files
+            try (FileWriter writer = new FileWriter(String.format("C:/Users/csabe/OneDrive/Desktop/school_magement_app/files/Students/%s%s.txt", firstNameField.returnValue(), lastNameField.returnValue()))) {
+                writer.write(String.format("First name: %s\n", firstNameField.returnValue()));
+                writer.write(String.format("Last name: %s\n", lastNameField.returnValue()));
+                writer.write(String.format("Age: %s\n", ageField.returnValue()));
+                writer.write(String.format("Grade: %s\n", gradeField.returnValue()));
+                writer.write(String.format("Avg grade: %s\n", avgGrade.returnValue()));
+                writer.write(String.format("Spec subject 1: %s\n", specSubject1.returnValue()));
+                writer.write(String.format("Spec subject 2: %s\n", specSubject2.returnValue()));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         }
-    }
-
-    //Test run for add_student
-    public static void main(String[] args) {
-        new AddStudent();
     }
 }
