@@ -18,7 +18,7 @@ class AddBtn extends JButton implements ActionListener {
         this.openNewWindow = openNewWindow;
 
         this.setText(text);
-        this.setBounds(x, y, Settings.MENU_BTN_WIDTH, Settings.MENU_BTN_HEIGHT);
+        this.setBounds(x, y, Settings.MENU_BTN_WIDTH, Settings.MENU_BTN_HEIGHT);  
         this.setFocusable(false);
         this.addActionListener(this);
     }
@@ -37,6 +37,10 @@ class AddBtn extends JButton implements ActionListener {
                 case "add_teacher_frame":
                     Settings.nextPanel = "add_teacher";
                     break;
+                /* Open student spreadsheet */
+                case "student_list":
+                    Settings.nextPanel = "student_list";
+                    break;
             }
 
             //Change panel method called
@@ -51,6 +55,7 @@ public class AdminPanel extends JPanel{
     //Menu buttons
     AddBtn openAddStudentBtn;
     AddBtn openAddTeacherBtn;
+    AddBtn openStuentSpreadsheet;
     
     //Constructor 
     public AdminPanel() {
@@ -58,11 +63,13 @@ public class AdminPanel extends JPanel{
         this.setLayout(null);
         this.setVisible(true);
 
-        openAddStudentBtn = new AddBtn("Add student", 170, 125, "add_student_frame");
-        openAddTeacherBtn = new AddBtn("Add teacher", 470, 125, "add_teacher_frame");
+        openAddStudentBtn = new AddBtn("Add student", 170, 125, "add_student_frame"); //DONE
+        openAddTeacherBtn = new AddBtn("Add teacher", 470, 125, "add_teacher_frame"); //DONE
+        openStuentSpreadsheet = new AddBtn("Students", 170, 375, "student_list"); //Working on 
 
         //Adding the widgets
         this.add(openAddStudentBtn);
         this.add(openAddTeacherBtn);
+        this.add(openStuentSpreadsheet);
     }
 }
