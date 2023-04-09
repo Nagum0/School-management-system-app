@@ -3,6 +3,7 @@ package App;
 import App.Admin.AddStudent;
 import App.Admin.AddTeacher;
 import App.Admin.AdminPanel;
+import App.Admin.Spreadsheets.StudentSheetFrame;
 
 public class Main {
     private static App mainApp;
@@ -13,7 +14,7 @@ public class Main {
             case "":
             System.out.println("An error occured");
                 break;
-            //Open admin menu
+            //Open admin menu - WORKING ON IT
             case "admin_menu":
                 mainApp.add(new AdminPanel());
                 break;
@@ -25,13 +26,17 @@ public class Main {
             case "student_menu":
                 System.out.println("Student menu");
                 break;
-            //Open admin add student menu
+            //Open admin add student menu - DONE
             case "add_student":
                 new AddStudent();
                 break;
-            //Open admin add teacher menu
+            //Open admin add teacher menu - DONE
             case "add_teacher":
                 new AddTeacher();
+                break;
+            /* Open student spreadsheet - WORKING ON IT*/
+            case "student_list":
+                new StudentSheetFrame();
                 break;
         }
     }

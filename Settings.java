@@ -25,6 +25,9 @@ public class Settings {
     public static int MENU_BTN_WIDTH = 150;
     public static int MENU_BTN_HEIGHT = 75;
 
+    //Spreadsheet settings
+    public static int SPREADSHEET_WIDTH = 1200;
+
     //Test stuff---------------------------------
     public static void main(String[] args) throws IOException {
         FileWriter writer = new FileWriter("C:/Users/csabe/OneDrive/Desktop/school_magement_app/files/Students/test.txt");
