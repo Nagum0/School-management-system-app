@@ -1,26 +1,44 @@
 package App.Admin.Spreadsheets;
 
 import javax.swing.JFrame;
-
-import App.Settings;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 /* Student spreadsheet frame */
 public class StudentSheetFrame extends JFrame {
-    StudentSheet studentSpreadSheet;
+    /* Objects */
+    JTable table;
+    JScrollPane sp;
 
     /* Constructor */
     public StudentSheetFrame() {
-        /* System.out.println("Student spreadsheet frame opened"); */
+        /* Spreadsheet data */
+        //Columns
+        String[] columns = {"Name", "Age", "Avg grade", "Gender"};
+
+        //Sheet data
+        String[][] data = {
+            {"Zeki", "18", "1.7", "Male"},
+            {"Astolfo", "18", "1.7", "Male"},
+            {"Ferris", "18", "1.3", "Male"}
+        };
 
         /* Frame setup */
         this.setTitle("Student Spreadsheet");
-        this.setSize(Settings.SPREADSHEET_WIDTH, Settings.HEIGHT);
+        this.setSize(500, 200);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
 
-        studentSpreadSheet = new StudentSheet();
+        /* JTable setup */
+        table = new JTable(data, columns);
+        table.setBounds(0, 0, 200, 300);
+
+        /* JScrollPane setup */
+        sp = new JScrollPane(table);
+
+        /* Adding elements */
+        this.add(sp);
     }
 
     /* Main for testing */
