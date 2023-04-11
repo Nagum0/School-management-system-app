@@ -103,13 +103,13 @@ public class AddStudent extends JFrame implements ActionListener {
         if (e.getSource() == addStudentBtn) {
             //Writing student files
             try (FileWriter writer = new FileWriter(String.format("C:/Users/csabe/OneDrive/Desktop/school_magement_app/files/Students/%s%s.txt", firstNameField.returnValue(), lastNameField.returnValue()))) {
-                writer.write(String.format("First name: %s\n", firstNameField.returnValue()));
-                writer.write(String.format("Last name: %s\n", lastNameField.returnValue()));
+                writer.write(String.format("First_name: %s\n", firstNameField.returnValue()));
+                writer.write(String.format("Last_name: %s\n", lastNameField.returnValue()));
                 writer.write(String.format("Age: %s\n", ageField.returnValue()));
                 writer.write(String.format("Grade: %s\n", gradeField.returnValue()));
-                writer.write(String.format("Avg grade: %s\n", avgGrade.returnValue()));
-                writer.write(String.format("Spec subject 1: %s\n", specSubject1.returnValue()));
-                writer.write(String.format("Spec subject 2: %s", specSubject2.returnValue()));
+                writer.write(String.format("Avg_grade: %s\n", avgGrade.returnValue()));
+                writer.write(String.format("Spec_subject_1: %s\n", specSubject1.returnValue()));
+                writer.write(String.format("Spec_subject_2: %s", specSubject2.returnValue()));
             } catch (IOException e1) {
                 e1.printStackTrace();
             }

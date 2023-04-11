@@ -104,13 +104,13 @@ public class AddTeacher extends JFrame implements ActionListener{
         if (e.getSource() == addTeacherBtn) {
             //Writing student files
             try (FileWriter writer = new FileWriter(String.format("C:/Users/csabe/OneDrive/Desktop/school_magement_app/files/Teachers/%s%s.txt", firstNameField.returnValue(), lastNameField.returnValue()))) {
-                writer.write(String.format("First name: %s\n", firstNameField.returnValue()));
-                writer.write(String.format("Last name: %s\n", lastNameField.returnValue()));
+                writer.write(String.format("First_name: %s\n", firstNameField.returnValue()));
+                writer.write(String.format("Last_name: %s\n", lastNameField.returnValue()));
                 writer.write(String.format("Age: %s\n", ageField.returnValue()));
                 writer.write(String.format("Title: %s\n", titleField.returnValue()));
-                writer.write(String.format("Subject 1: %s\n", subject1Field.returnValue()));
-                writer.write(String.format("Subject 2: %s\n", subject2Field.returnValue()));
-                writer.write(String.format("Years taught: %s", yearsTaughtField.returnValue()));
+                writer.write(String.format("Subject_1: %s\n", subject1Field.returnValue()));
+                writer.write(String.format("Subject_2: %s\n", subject2Field.returnValue()));
+                writer.write(String.format("Years_taught: %s", yearsTaughtField.returnValue()));
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
